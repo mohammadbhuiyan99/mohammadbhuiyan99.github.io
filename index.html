@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
 <body>
-<title>COuntry List</title>
+<title>Country List</title>
 <h1>Country List</h1>
 <p> Please enter the country code of your destination</p>
 <p>County Code Guide:</p>
 <ul>
-<li>CAN: Canada</li>
-<li>USA: United States of America</li>
+<li>CAN – Canada</li>
+<li>USA – United States of America</li>
+<li>MEX – Mexico</li>
+<li>BLZ – Belize</li>
+<li>GTM – Guatemala</li>
+<li>SLV – El Salvador</li>
+<li>HND – Honduras borders</li>
+<li>NIC – Nicaragua</li>
+<li>CRI – Costa Rica</li>
+<li>PAN – Panama</li>
 </ul>
 
 <input id="myInput" type="text">
-
+<!-- Runs the javascript function when the button is clicked.  -->
 <button onclick="myFunction()">Search</button>
 
 <p id="demo"></p>
 
 <script type="text/javascript">
 function myFunction() {
+  //regular expression to make sure the code is not more than 3 Letters
  let re = new RegExp("^[a-zA-Z]{3}$");
   var text;
   var country = document.getElementById("myInput").value;
-
+// if only 3 letters di the switch cases
 if (re.test(country))
 {
-
+// switch cases to switch between countries when input is given
   switch(String(country).toUpperCase()) {
     case "CAN":
       text = "USA, CAN";
@@ -34,20 +43,34 @@ if (re.test(country))
     break;
     case "MEX":
     text = "USA, MEX";
+    case "BLZ":
+    text = "USA, MEX, GTM, BLZ";
+    case "GTM":
+    text = "USA, MEX, GTM";
+    case "SLV":
+    text = "USA, MEX, GTM, SLV";
+    case "HND":
+    text = "USA, MEX, GTM, HND";
+    case "NIC":
+    text = "USA, MEX, GTM, HND, NIC";
+    case "CRI":
+    text = "USA, MEX, GTM, HND, NIC, CRI";
+    case "PAN":
+    text = "USA, MEX, GTM, HND, NIC, CRI, PAN";
     break;
     default:
-    text = "Please select right format";
+    text = "Wrong country code";
   }
-  
+// shows the country codes from the USA
   document.getElementById("demo").innerHTML = text;
   }
+  // if not 3 letters show alert
   else
   {
-    document.getElementById("demo").innerHTML = "Wrong format, retry";
+    alert("WRING FORMAT. Retry WITH ONLY 3 LETTERS!");
 
   }
 }
 </script>
-
 </body>
 </html>
