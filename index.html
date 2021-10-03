@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-<title>Country List</title>
+<title>COuntry List</title>
 <h1>Country List</h1>
 <p> Please enter the country code of your destination</p>
 <p>County Code Guide:</p>
@@ -16,12 +16,16 @@
 
 <p id="demo"></p>
 
-<script>
+<script type="text/javascript">
 function myFunction() {
+ let re = new RegExp("^[a-zA-Z]{3}$");
   var text;
   var country = document.getElementById("myInput").value;
 
-  switch(country) {
+if (re.test(country))
+{
+
+  switch(String(country).toUpperCase()) {
     case "CAN":
       text = "USA, CAN";
     break;
@@ -34,7 +38,14 @@ function myFunction() {
     default:
     text = "Please select right format";
   }
+  
   document.getElementById("demo").innerHTML = text;
+  }
+  else
+  {
+    document.getElementById("demo").innerHTML = "Wrong format, retry";
+
+  }
 }
 </script>
 
