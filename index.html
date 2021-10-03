@@ -28,7 +28,9 @@
 function myFunction() {
   //regular expression to make sure the code is not more than 3 Letters
  let re = new RegExp("^[a-zA-Z]{3}$");
+  //variable for the countries to be printed
   var text;
+  //variable for input provided
   var country = document.getElementById("myInput").value;
 // if only 3 letters di the switch cases
 if (re.test(country))
